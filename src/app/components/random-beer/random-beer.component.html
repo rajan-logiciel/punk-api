@@ -1,0 +1,33 @@
+<h3 class="mt-3 row">Beer</h3>
+<div class="row grid border padding10" >
+    <div class="col-12">
+        <h3>{{ randomBeer.name }}</h3>
+    </div>
+    <div class="col-1 text-center">
+        <img
+            class="border"
+            height="100px"
+            [ngStyle]="{'max-width': '100%'}"
+            src="{{ randomBeer.image_url || '/assets/no-image.png' }}"
+            alt=" {{ randomBeer.name }} ">
+
+    </div>
+    <div class="col-8">
+        {{ randomBeer.description }}
+    </div>
+    <div class="col-3">
+        <button
+            [disabled]="loader == 'another'"
+            type="button" (click)="getRandomBeer('another')"
+            class="btn btn-primary col-12">
+            {{ (loader == 'another') ? 'Fetching...': 'Another Beer' }}
+        </button>
+        <button
+            [disabled]="loader == 'non'"
+            type="button" (click)="getRandomBeer('non')"
+            class="btn btn-primary col-12 mt-1">
+            {{ (loader == 'non' )? 'Fetching...': 'Random Non Alcoholic Beer' }}
+    </button>
+    </div>
+    <h3> </h3>
+</div>
